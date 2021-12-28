@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <van-icon name="chat" dot />
+<van-icon name="chat" info="9" />
+<van-icon name="chat" info="99+" />
+</view>

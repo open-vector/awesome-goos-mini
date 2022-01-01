@@ -1,10 +1,52 @@
 <view class="container">
+<van-toast id="van-toast" />
 
-<view class="article-item">
-
+<view class="article-item" bindtap="toArticleDetail">
+  <van-image
+    width="100%"
+    height="9rem"
+    fit="cover"
+    src="https://qna.smzdm.com/202112/31/61cf18fa2140e4836.jpg_fo742.jpg"
+  />
+<span class="article-title">
+    逢年过节，走亲访友，怎少得了几盒好看的伴手礼呢！
+  </span>
 </view>
-  <view style="text-align:center;">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  
+<view class="article-item" bindtap="toArticleDetail">
+  <van-image
+    width="100%"
+    height="9rem"
+    fit="cover"
+    src="https://qna.smzdm.com/202201/01/61d01627e93674589.jpg_fo742.jpg"
+  />
+<span class="article-title">
+    5大理由，让您爱上MIUI 13，13它是真的香！
+  </span>
+</view>
+
+<view class="article-item" bindtap="toArticleDetail">
+  <van-image
+    width="100%"
+    height="9rem"
+    fit="cover"
+    src="https://qna.smzdm.com/202112/26/61c7490e0e0106805.jpg_fo742.jpg"
+  />
+<span class="article-title">
+    历时半年佛系组套件，手里键003+胡子圣熊猫V3+艾酷MOD001
+  </span>
+</view>
+
+<view class="article-item" bindtap="toArticleDetail">
+  <van-image
+    width="100%"
+    height="9rem"
+    fit="cover"
+    src="https://qna.smzdm.com/202112/31/61cf237737c952926.jpg_fo742.jpg"
+  />
+<span class="article-title">
+    2022年信用卡权益集结地
+  </span>
+</view>
   
 </view>

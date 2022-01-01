@@ -1,4 +1,23 @@
-/**index.wxss**/
+.article-item {
+  width: 100%;
+  background-color: #eee;
+  border-radius: .3rem;
+  overflow:hidden;
+  margin: .5rem 0;
+}
+
+.article-title {
+overflow: hidden;
+text-overflow: ellipsis;
+display: box;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+font-size:.9rem;
+line-height:1.5rem;
+padding: 0 .3rem;
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+<van-toast id="van-toast" />
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-avatar" bindtap="bindViewTap">
@@ -23,9 +24,9 @@
 
   <view>
   <van-cell-group inset>
-  <van-cell title="我的收藏"  icon="like" is-link/>
-  <van-cell title="推荐给好友" value="分享返现" icon="star" is-link />
-  <van-cell title="意见反馈" icon="smile-comment" is-link />
+  <van-cell title="我的收藏" bind:click="onClick" icon="like" is-link/>
+  <van-cell title="推荐给好友" bind:click="onClick"  value="分享返现" icon="star" is-link />
+  <van-cell title="意见反馈" bind:click="onClick" icon="smile-comment" is-link />
  
 </van-cell-group>
   </view>

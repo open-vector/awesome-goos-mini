@@ -1,10 +1,19 @@
 /**index.wxss**/
 .userinfo {
+  color: #333;
+  display: flex;
+}
+
+.info-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  color: #aaa;
+  justify-content: space-between;
+  line-height: 90rpx;
 }
+
+.avatar_box {
+    text-align:center;
+  }
 
 .userinfo-avatar {
   overflow: hidden;
@@ -16,4 +25,8 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.van-cell {
+  padding-left: 0 !important;
 }

@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/my/my",
     "pages/index/index",
     "pages/evaluation/evaluation",
     "pages/article/article",
-    "pages/my/my",
     "pages/logs/logs"
   ],
   "window": {
@@ -55,7 +55,8 @@
   },
   "debug": true,
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-toast": "@vant/weapp/toast/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",

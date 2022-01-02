@@ -1,9 +1,13 @@
+.container {
+    background-color: #eee;
+}
 .article-item {
   width: 100%;
-  background-color: #eee;
+  background-color: #fff;
   border-radius: .3rem;
   overflow:hidden;
-  margin: .5rem 0;
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
 }
 
 .article-title {
@@ -11,28 +15,17 @@ overflow: hidden;
 text-overflow: ellipsis;
 display: box;
 display: -webkit-box;
--webkit-line-clamp: 1;
+-webkit-line-clamp: 2;
 -webkit-box-orient: vertical;
-font-size:.9rem;
+font-size:1rem;
 line-height:1.5rem;
-padding: 0 .3rem;
+padding: 0 .5rem;
 }
-
-.userinfo {
+.article-like {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  font-size:.8rem;
+  padding: 0 .5rem;
   color: #aaa;
-}
-
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
+  line-height: 1.2rem;
 }

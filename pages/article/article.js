@@ -4,44 +4,50 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '好文',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
-  },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    articleInfoList: []
   },
   onLoad() {
+
+    let articleInfoList = [
+      {
+        id: 4,
+        title: '5大理由，让您爱上MIUI 13，13它是真的香！',
+        imageUrl: 'https://qna.smzdm.com/202201/01/61d01627e93674589.jpg_fo742.jpg',
+        favCount: 128,
+        commentCount: 19,
+        tags: ['使用评测', '电子数码']
+      },
+      {
+        id: 1,
+        title: '历时半年佛系组套件，手里键003+胡子圣熊猫V3+艾酷MOD001',
+        imageUrl: 'https://qna.smzdm.com/202112/26/61c7490e0e0106805.jpg_fo742.jpg',
+        favCount: 56,
+        commentCount: 2,
+        tags: ['使用评测', '电子数码']
+      },
+      {
+        id: 2,
+        title: '2022年信用卡权益集结地',
+        imageUrl: 'https://qna.smzdm.com/202112/31/61cf237737c952926.jpg_fo742.jpg',
+        favCount: 3,
+        commentCount: 45,
+        tags: ['使用评测', '电子数码']
+      },
+      {
+        id: 3,
+        title: '逢年过节，走亲访友，怎少得了几盒好看的伴手礼呢！',
+        imageUrl: 'https://qna.smzdm.com/202112/31/61cf18fa2140e4836.jpg_fo742.jpg',
+        favCount: 145,
+        commentCount: 35,
+        tags: ['使用评测', '电子数码']
+      }
+      
+    ]
+
+    this.setData({ articleInfoList: articleInfoList })
 
   },
   toArticleDetail() {
     Toast('开发中。。。');
-  },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    })
-  },
-  getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
   }
 })

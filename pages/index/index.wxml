@@ -1,6 +1,52 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
-  <view style="text-align:center;">
-    <text class="user-motto">{{motto}}</text>
+  <view>
+    <van-search disabled value="{{ value }}" bindtap="togoSearchDetail" placeholder="{{searchTip}}" />
   </view>
+  <view hover-class="none" hover-stop-propagation="false">
+    <van-notice-bar left-icon="volume-o" scrollable text="疫情期间，请做好个人防护，让我们共同努力，早日战胜疫情，加油！！！" />
+  </view>
+  <view hover-class="none" hover-stop-propagation="false">
+    <van-grid column-num="3" border="{{ false }}">
+      <van-grid-item use-slot wx:for="{{ 6 }}" wx:for-item="index">
+        <view class="tab-item-cus">
+          <span class="title">秒杀精选</span>
+          <span class="sub-title">品质保障</span>
+          <image style="width: 100%; height: 70px;" src="https://img.yzcdn.cn/vant/apple-{{ index + 1 }}.jpg" />
+        </view>
+      </van-grid-item>
+    </van-grid>
+  </view>
+  <view hover-class="none" hover-stop-propagation="false">
+    <van-tabs active="{{ active }}" bind:change="onChange" animated swipeable>
+      <van-tab title="{{type.name}}" wx:for="{{indexTypeList}}" wx:for-item="type" data-id="{{type.id}}" wx:key="type.id">
+        <view class="list-box" hover-class="none" hover-stop-propagation="false">
+          <view wx:for="{{goodsList}}" wx:for-item="item" data-id="{{item.skuId}}" wx:key="item.skuId" class="list-item-box">
+            <van-image width="100%" height="9rem" fit="cover" src="{{item.imageInfo.imageList[0].url}}" />
+            <p class="item-title">{{item.skuName}}</p>
+            <p class="item-tag">
+              <span wx:if="{{item.owner == 'g'}}" size="medium" style="margin-right:0.5rem">
+                <van-tag type="danger">自营</van-tag>
+              </span>
+              <span wx:if="{{item.couponInfo.couponList.length > 0}}" size="medium" style="margin-right:0.5rem">
+                <van-tag plain type="danger">券</van-tag>
+              </span>
+              <span style="color:#666;font-size:0.8rem;position: absolute;right:0.5rem;line-height:1.5rem">
+                <van-tag type="success">{{item.goodCommentsShare}}%好评</van-tag>
+              </span>
+            </p>
+            <p class="item-price">
+              <span style="color:red;font-weight: bold;">￥{{item.priceInfo.lowestPrice}}</span>
+              <span style="color:#888;font-size:0.8rem;margin-left:.6rem;text-decoration:line-through;">
+                ￥{{item.priceInfo.price}}
+              </span>
+            </p>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+  <!-- // 1. 搜索
+// 2. 推荐 横向滑动
+// 3. TAB 列表（瀑布流） -->
 </view>

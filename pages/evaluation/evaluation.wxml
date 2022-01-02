@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
   <view style="text-align:center;">
-    <text class="user-motto">{{motto}}</text>
+    <van-empty description="暂无内容" />
   </view>
 </view>

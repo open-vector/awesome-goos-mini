@@ -23,9 +23,9 @@ Page({
         canIUseGetUserProfile: true
       })
     }
-    
+
   },
-  onClick(){
+  onClick() {
     Toast('开发中~');
   },
   getUserProfile(e) {

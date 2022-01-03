@@ -4,7 +4,8 @@
     "pages/article/article",
     "pages/my/my",
     "pages/evaluation/evaluation",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/index/details/details"
   ],
   "window": {
     "backgroundTextStyle": "dark",

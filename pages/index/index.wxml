@@ -21,7 +21,7 @@
     <van-tabs active="{{ active }}" bind:change="onChange" animated swipeable>
       <van-tab title="{{type.name}}" wx:for="{{indexTypeList}}" wx:for-item="type" data-id="{{type.id}}" wx:key="type.id">
         <view class="list-box" hover-class="none" hover-stop-propagation="false">
-          <view wx:for="{{goodsList}}" wx:for-item="item" data-id="{{item.skuId}}" wx:key="item.skuId" class="list-item-box">
+          <view wx:for="{{goodsList}}" wx:for-item="item" data-id="{{item.skuId}}" wx:key="item.skuId" bindtap="handToDetailsPage" class="list-item-box" >
             <van-image width="100%" height="9rem" fit="cover" src="{{item.imageInfo.imageList[0].url}}" />
             <p class="item-title">{{item.skuName}}</p>
             <p class="item-tag">

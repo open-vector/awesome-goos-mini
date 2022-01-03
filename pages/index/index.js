@@ -74,6 +74,9 @@ Page({
       },
 
     ],
+    isHaveData: true,
+    pageSize: 20,
+    pageIndex: 1,
     userInfo: {},
     active: 0,
     searchTip: '苹果13pro',
@@ -93,20 +96,49 @@ Page({
     this.getJFgoodsList()
   },
   getJFgoodsList() {
-    this.setData({ goodsList: [] })
+    var that = this;
     let currentTypeInfo = this.data.indexTypeList[this.data.active]
     console.log(currentTypeInfo)
     let url = '/goods/jingfen/query'
-    let data = { eliteId: currentTypeInfo.id }
+    let data = { eliteId: currentTypeInfo.id, pageIndex: this.data.pageIndex }
     app.post.req(url, data, (res) => {
-      if (res) {
-        this.setData({ goodsList: res.result })
+      var arr = res.result;
+      if (arr.length < that.data.pageSize) {
+        that.setData({
+          isHaveData: false
+        })
+      } else {
+        var newPageIndex = that.data.pageIndex + 1
+        that.setData({
+          isHaveData: true,
+          pageIndex: newPageIndex,
+          classType: 1,
+          pageSize: 10
+        })
       }
+
+      //新数据加到历史数据后面
+      var newListData = that.data.goodsList.concat(arr)
+      if (newListData.length == 0) {
+        that.setData({
+          showData: true
+        })
+      } else {
+        that.setData({
+          showData: false
+        })
+      }
+      that.setData({
+        goodsList: newListData
+      })
     })
   },
   onChange(event) {
     this.setData({
-      active: event.detail.name
+      active: event.detail.name,
+      goodsList: [],
+      pageIndex: 1,
+      pageSize: 20
     })
     this.getJFgoodsList()
   },
@@ -133,5 +165,38 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onReachBottom: function () {
+    if (!this.data.isHaveData) {
+      wx.showToast({
+        title: '没有更多数据',
+        icon: 'none'
+      });
+      return
+    }
+
+    this.getJFgoodsList()
+  },
+  handToDetailsPage(){
+    wx.navigateTo({
+      url: '/pages/index/details/details'
+    })
+  },
+  onPullDownRefresh() {
+
+    this.setData({
+      isHaveData: true,
+      goodsList: [],
+      pageIndex: 1,
+      pageSize: 20
+    })
+    this.getJFgoodsList()
+    wx.showNavigationBarLoading();
+    setTimeout(function () {
+      // 隐藏导航栏加载框
+      wx.hideNavigationBarLoading();
+      // 停止下拉动作
+      wx.stopPullDownRefresh();
+    }, 1000)
   }
 })

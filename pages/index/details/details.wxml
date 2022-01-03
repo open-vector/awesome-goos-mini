@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <view style="text-align:center;">
+    <!-- <van-empty description="暂无内容" /> -->
+    <web-view src="{{skipUrl}}" bindmessage=""></web-view>
+  </view>
+</view>

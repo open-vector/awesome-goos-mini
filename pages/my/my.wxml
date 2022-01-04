@@ -26,7 +26,8 @@
   <van-cell-group inset>
   <van-cell title="我的收藏" bind:click="onClick" icon="like" is-link/>
   <van-cell title="推荐给好友" bind:click="onClick"  value="分享返现" icon="star" is-link />
-  <van-cell title="意见反馈" bind:click="onClick" icon="smile-comment" is-link />
+  <van-cell title="意见反馈"  icon="smile-comment" is-link />
+  <button style="width:100%;margin:0;padding:0;text-align:left;font-weight:1px;color:#666;" open-type="contact"><van-cell title="客服"  icon="friends" is-link /></button>
  
 </van-cell-group>
   </view>

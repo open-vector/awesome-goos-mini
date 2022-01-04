@@ -2,5 +2,6 @@
 <view class="container">
   <view style="text-align:center;">
     <van-empty description="暂无内容" />
+     
   </view>
 </view>
